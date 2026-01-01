@@ -1,0 +1,60 @@
+{{template "header" .}}
+<div class="p-2">
+    <div class="mb-4 text-justify">
+        To play Capernia Online, you must create an account.
+        During registration, you will be asked to choose an account number and a password, and to provide a valid email address.
+        By clicking the "I Agree" button, you confirm your agreement with the terms presented below.
+    </div>
+
+    <form action="/account/create" method="POST">
+        <input type="hidden" name="agreement" value="1"/>
+
+        <div class="center_box">
+            <div class="corner_lt"></div><div class="corner_rt"></div><div class="corner_lb"></div><div class="corner_rb"></div>
+            <div class="title"><span class="cufon" style="text-transform: uppercase;text-align: center;line-height: 43px;font-size: 16px;">Create Account</span></div>
+            <div class="content_bg">
+                <div class="content">
+                    <table class="table table-borderless text-dark w-100">
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold" style="width: 30%;">Account number:</td>
+                                <td><input type="text" name="account" class="form-control form-control-sm" required/></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Email:</td>
+                                <td><input type="email" name="email" class="form-control form-control-sm" required/></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Confirm email:</td>
+                                <td><input type="email" name="email_confirm" class="form-control form-control-sm" required/></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Password:</td>
+                                <td><input type="password" name="password" class="form-control form-control-sm" required/></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Confirm password:</td>
+                                <td><input type="password" name="password_confirm" class="form-control form-control-sm" required/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="border_bottom"></div>
+        </div>
+
+        <div class="mt-4">
+            <p class="fw-bold mb-2 text-dark">Capernia Service Agreement</p>
+            <textarea class="form-control mb-3" rows="5" style="font-size: 11px; resize: none;" readonly>This agreement describes the terms on which Capernia Online offers you access to an account...</textarea>
+            
+            <p class="fw-bold mb-2 text-dark">Capernia Rules</p>
+            <textarea class="form-control mb-4" rows="5" style="font-size: 11px; resize: none;" readonly>1. Names... 2. Statements... 3. Cheating...</textarea>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3">
+            <button type="submit" class="btn btn-warning fw-bold text-dark border-dark">I Agree</button>
+            <a href="/" class="btn btn-secondary border-dark">Cancel</a>
+        </div>
+    </form>
+</div>
+{{template "footer" .}}

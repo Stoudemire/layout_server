@@ -1,0 +1,17 @@
+{{template "header" .}}
+<div class="p-4 text-center">
+    <div class="center_box">
+        <div class="corner_lt"></div><div class="corner_rt"></div><div class="corner_lb"></div><div class="corner_rb"></div>
+        <div class="title"><span class="cufon" style="text-transform: uppercase;text-align: center;line-height: 43px;font-size: 16px;">{{.Heading}}</span></div>
+        <div class="content_bg">
+            <div class="content">
+                <p class="text-dark p-3">{{.Message}}</p>
+            </div>
+        </div>
+        <div class="border_bottom"></div>
+    </div>
+    <div class="mt-4">
+        <a href="/" class="btn btn-secondary border-dark">Back</a>
+    </div>
+</div>
+{{template "footer" .}}

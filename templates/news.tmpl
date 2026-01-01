@@ -1,0 +1,22 @@
+{{template "header" .}}
+<div class="p-2">
+    {{range .News}}
+        <div class="center_box mb-4">
+            <div class="corner_lt"></div><div class="corner_rt"></div><div class="corner_lb"></div><div class="corner_rb"></div>
+            <div class="title">
+                <span class="ps-4 text-start cufon" style="text-transform: uppercase; line-height: 43px; font-size: 14px;">
+                    {{.CreatedAt.Format "Jan 02 2006"}} - {{.Title}}
+                </span>
+            </div>
+            <div class="content_bg">
+                <div class="content text-dark">
+                    {{.Content}}
+                </div>
+            </div>
+            <div class="border_bottom"></div>
+        </div>
+    {{else}}
+        <div class="text-center p-5 text-dark">No news available.</div>
+    {{end}}
+</div>
+{{template "footer" .}}

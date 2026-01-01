@@ -1,0 +1,71 @@
+{{template "header" .}}
+<div class="p-2">
+    {{with .Account}}
+        <div class="center_box">
+            <div class="corner_lt"></div><div class="corner_rt"></div><div class="corner_lb"></div><div class="corner_rb"></div>
+            <div class="title"><span class="cufon" style="text-transform: uppercase;text-align: center;line-height: 43px;font-size: 16px;">Account Information</span></div>
+            <div class="content_bg">
+                <div class="content">
+                    <table class="table table-borderless text-dark w-100 mb-0">
+                        <tr>
+                            <td class="fw-bold" style="width: 30%;">Email:</td>
+                            <td>{{.Email}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">Status:</td>
+                            <td>
+                                {{if gt .PremiumDays 0}}
+                                    <span class="text-success">Premium Account ({{.PremiumDays}} days left)</span>
+                                {{else}}
+                                    Free Account
+                                {{end}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="border_bottom"></div>
+        </div>
+
+        {{if .Characters}}
+            <div class="center_box mt-4">
+                <div class="corner_lt"></div><div class="corner_rt"></div><div class="corner_lb"></div><div class="corner_rb"></div>
+                <div class="title"><span class="cufon" style="text-transform: uppercase;text-align: center;line-height: 43px;font-size: 16px;">Characters</span></div>
+                <div class="content_bg">
+                    <div class="content">
+                        <table class="table table-sm table-striped text-dark w-100">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Level</th>
+                                    <th>Vocation</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{range .Characters}}
+                                    <tr>
+                                        <td><a href="/character?name={{.Name}}">{{.Name}}</a></td>
+                                        <td>{{.Level}}</td>
+                                        <td>{{.Profession}}</td>
+                                        <td>
+                                            {{if .Online}}
+                                                <span class="text-success fw-bold">Online</span>
+                                            {{else}}
+                                                <span class="text-danger">Offline</span>
+                                            {{end}}
+                                        </td>
+                                    </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="border_bottom"></div>
+            </div>
+        {{end}}
+    {{else}}
+        <div class="alert alert-danger">Error loading account summary.</div>
+    {{end}}
+</div>
+{{template "footer" .}}

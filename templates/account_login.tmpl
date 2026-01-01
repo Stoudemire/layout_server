@@ -1,0 +1,37 @@
+{{template "header" .}}
+<div class="p-2">
+    <p class="mb-4 text-dark">
+        Please enter your account number and your password.<br>
+        If you do not have an account yet simply <a href="/account/create">sign up</a> to get one.
+    </p>
+
+    <form action="/account" method="POST">
+        <div class="center_box">
+            <div class="corner_lt"></div><div class="corner_rt"></div><div class="corner_lb"></div><div class="corner_rb"></div>
+            <div class="title"><span class="cufon" style="text-transform: uppercase;text-align: center;line-height: 43px;font-size: 16px;">Account Login</span></div>
+            <div class="content_bg">
+                <div class="content">
+                    <table class="table table-borderless text-dark w-100">
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold" style="width: 30%;">Account number:</td>
+                                <td><input type="text" name="account" class="form-control form-control-sm" required></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold">Password:</td>
+                                <td><input type="password" name="password" class="form-control form-control-sm" required></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="border_bottom"></div>
+        </div>
+
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <button type="submit" class="btn btn-warning fw-bold text-dark border-dark">Submit</button>
+            <a href="/account/recover" class="btn btn-secondary border-dark">Account lost?</a>
+        </div>
+    </form>
+</div>
+{{template "footer" .}}
